@@ -2,21 +2,34 @@ const chai = require("chai");
 const expect = chai.expect;
 const { isFive, isOdd, myRange } = require("../funcs");
 
+//the name of the function should be "isFive" and takes in num as an argument
 describe("isFive(num)", () => {
+
+  //string that tells you what the test is testing for
   it("should return true if the num is 5 otherwise false", () => {
+    //first test case
     const num1 = 5;
 
+    //if we pass it into the function they made, it should be true if correct
     const actual1 = isFive(num1); // should be true
 
+    //tests if the result of the first test case returns true
     expect(actual1).to.be.true;
+
 
     const otherInput = "not 5";
     const num2 = 4;
 
+    //sets the value of actual2 to the return value of passing 4 into the function
     const actual2 = isFive(num2); // should be false
+
+    //sets the value of acutal3 to something thats not a number
     const actual3 = isFive(otherInput); // should be false
 
+    //tests if passing actual2 return false
     expect(actual2).to.be.false;
+
+    //tests if actual3 returns false as well
     expect(actual3).to.be.false;
   });
 });
