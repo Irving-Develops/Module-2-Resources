@@ -1,5 +1,7 @@
 const chai = require("chai");
 const expect = chai.expect;
+
+//functions we are testing
 const { isFive, isOdd, myRange } = require("../funcs");
 
 //the name of the function should be "isFive" and takes in num as an argument

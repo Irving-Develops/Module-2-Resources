@@ -33,20 +33,27 @@ const recipes = {
 /* DO NOT CHANGE THE CODE ABOVE */
 
 /*************************** FUNCTION TO REFACTOR ****************************/
-function bakeAndSellPies(pieType, pieQuantity, profitMargin) {
+//list the ingredients of the current pieType
+function ingredientList(pieType) {
   // Find the recipe for the pieType specified
   const recipe = recipes[pieType];
-  // Bake the number of pies specified by the pieQuantity
-  for (let i = 0; i < pieQuantity; i++) {
-    // Print the ingredients for each ingredient in the recipe
-    let combiningMsg = `Combining ingredients for ${pieType}: `
-    combiningMsg += recipe.map(ingredient => ingredient.name).join(', ');
-    console.log(combiningMsg);
+  // Print the ingredients for each ingredient in the recipe
+  let combiningMsg = `Combining ingredients for ${pieType}: `
+  combiningMsg += recipe.map(ingredient => ingredient.name).join(', ');
+  console.log(combiningMsg);
 
+}
+function repeater(pieType, pieQuantity) {
+  for (let i = 0; i < pieQuantity; i++) {
+    ingredientList(pieType);
     // Print the nth pie that was baked
     console.log(`Baked pie ${i + 1}!`);
   }
+}
 
+function priceForPie(pieType, pieQuantity, profitMargin) {
+
+  const recipe = recipes[pieType];
   // Print the cost of each pie based on the cost of each ingredient
   const costOfPie = recipe.reduce((prev, current) => {
     return prev + current.cost;
@@ -55,17 +62,32 @@ function bakeAndSellPies(pieType, pieQuantity, profitMargin) {
 
   // Calculate the total cost of all the pies
   const totalCost = costOfPie * pieQuantity;
-
   // Print the total revenue calculated using the given profitMargin
   const revenue = totalCost * (profitMargin || 1.2);
   console.log(`Sold ${pieQuantity} pies for $${revenue.toFixed(2)}!`);
+
 }
 
-/******************************* LOCAL TESTS *******************************/
-// bakeAndSellPies("applePie", 5, 2.5);
-// bakeAndSellPies("pumpkinPie", 2);
-// bakeAndSellPies("cherryPie", 7, 1.7);
+function bakeAndSellPies(pieType, pieQuantity, profitMargin){
+  ingredientList(pieType);
+  repeater(pieType,pieQuantity);
+  priceForPie(pieType,pieQuantity,profitMargin)
+}
 
+// function bakeAndSellPies(pieQuantity, profitMargin) {
+//   // Bake the number of pies specified by the pieQuantity
+//    // Find the recipe for the pieType specified
+//    const recipe = recipes[pieType];
+
+
+// }
+
+/******************************* LOCAL TESTS *******************************/
+console.log(bakeAndSellPies("applePie", 5, 2.5));
+console.log(bakeAndSellPies("pumpkinPie", 2));
+console.log(bakeAndSellPies("cherryPie", 7, 1.7));
+console.log(ingredientList("applePie"));
+console.log(repeater('applePie', 5));
 /**************************************************************************/
 /* DO NOT CHANGE THE CODE BELOW */
 module.exports = {
