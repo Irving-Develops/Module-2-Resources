@@ -7,6 +7,6 @@ function greetAfterNameChange(changeName, newName) {
 
   console.log(`Hi my name is ${name}`);
 }
-
-greetAfterNameChange(michelle.changeName, 'Elle');
+let boundMichelle = michelle.changeName.bind(michelle);
+greetAfterNameChange(boundMichelle, 'Elle');
   // should print out: Hi my name is Elle
