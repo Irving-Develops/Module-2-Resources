@@ -15,7 +15,7 @@ class Fish {
 const nemo = new Fish('Nemo');
 
 /********************************* Scenario 1 *********************************/
-// eat(); // ? will throw an error because 
+// eat(); // ? will print undefined eats fish food because 
 
 
 /********************************* Scenario 2 *********************************/
