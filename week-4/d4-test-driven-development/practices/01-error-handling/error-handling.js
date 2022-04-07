@@ -24,46 +24,38 @@
 
 // Your code here
 
-function sayName(name) {
-  console.log(name)
+// function sayName(name) {
+//   console.log(name)
 
-}
+// }
 
-try {
-  sayName("Alex");
-  sayName(1);
-  if (typeof name !== "string") {
-    throw new Error("Need a string");
-  }
-} catch (error) {
+// try {
+//   sayName("Alex");
+//   sayName(1);
+//   if (typeof name !== "string") {
+//     throw new Error("Need a string");
+//   }
+// } catch (error) {
 
-  console.log(error.message);
+//   console.log(error.message);
 
-}
+// }
 
 
 
 // 3.
-// function greet(greeting) {
-//   try {
-//     if (!greeting) {
-//       throw new Error("There was no greeting given.");
-//     }
+function greet(greeting) {
+    if (!greeting) {
+      throw new Error("There was no greeting given.");
+    }
+    console.log(greeting);
+}
 
-//     console.log(greeting);
-//   } catch (error) {
-//     errorThrown(error);
-//   } finally {
-//     console.log("Hello world")
-//   }
-// }
-
-// function errorThrown(message) {
-//   console.log(message);
-// }
-
-
-// console.log(greet(""))
+try{
+  greet("");
+}catch(e) {
+  console.log("hello world")
+}
 
 
 
