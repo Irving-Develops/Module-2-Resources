@@ -1,26 +1,79 @@
-// 1.
-function sum(array) {
-  let sum = 0;
-  for (let i = 0; i < array.length; i++) {
-    sum += array[i];
-  }
-  return sum;
-}
+// // 1.
+// function sum(array) {
+//   let sum = 0;
 
-let res = sum(null);
-console.log(res);
+//   try {
+//     for (let i = 0; i < array.length; i++) {
+//       sum += array[i];
+//     }
+//   } catch (e) {
+//     if (e instanceof TypeError) {
+//       console.log(e.message);
+//     }else{
+//       throw e;
+//     }
+//   }
+//   return sum;
+// }
 
-// 2.
+// let res = sum(null);
+// console.log(res);
+
+//2.
 // tests
-sayName("Alex");
-sayName(1);
+
 // Your code here
 
-// 3.
-function greet(greeting) {
-  if (!greeting) {
-    throw new Error("There was no greeting given.");
-  }
+function sayName(name) {
+  console.log(name)
 
-  console.log(greeting);
 }
+
+try {
+  sayName("Alex");
+  sayName(1);
+  if (typeof name !== "string") {
+    throw new Error("Need a string");
+  }
+} catch (error) {
+
+  console.log(error.message);
+
+}
+
+
+
+// 3.
+// function greet(greeting) {
+//   try {
+//     if (!greeting) {
+//       throw new Error("There was no greeting given.");
+//     }
+
+//     console.log(greeting);
+//   } catch (error) {
+//     errorThrown(error);
+//   } finally {
+//     console.log("Hello world")
+//   }
+// }
+
+// function errorThrown(message) {
+//   console.log(message);
+// }
+
+
+// console.log(greet(""))
+
+
+
+
+
+// try {
+//   const num = 10;
+//   if (typeof num !== 'string') {
+//     throw new Error('Need a string');
+//   }
+// } catch (e) {
+//   errorThrown(e.message);
+// }
