@@ -1,8 +1,9 @@
-class DynamicArray {
+class DynamicArray extends Array {
 
-    constructor(defaultSize=4) {
-
-      // Fill this out
+    constructor(length = 4) {
+      this.length = length;
+      this.data = data;
+      this.capacity =
 
     }
 
@@ -21,5 +22,7 @@ class DynamicArray {
 
   }
 
+  let newArr = new DynamicArray();
+  console.log(newArr)
 
   module.exports = DynamicArray;
