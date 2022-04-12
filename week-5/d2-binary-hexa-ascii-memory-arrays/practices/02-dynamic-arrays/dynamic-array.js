@@ -3,7 +3,7 @@ class DynamicArray extends Array {
     constructor(length = 4) {
       this.length = length;
       this.data = data;
-      this.capacity =
+      this.capacity 
 
     }
 
