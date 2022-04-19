@@ -16,8 +16,16 @@ function insertionSort(arr) {
   - Insert the unsorted value at the break point
   Return the sorted array
   */
+ let copyArr = [...arr]
+ let sortedArr = [];
+ sortedArr.push(null)
+ while(arr.length){
+   console.log(sortedArr.join(','))
+   let lastEl = copyArr.pop();
+   for(let i )
+ }
 }
-
+insertionSort([1,2,3,8,5,9,4,6,7])
 // In-place Insertion Sort
 // Mutates the original array
 function insertionSortInPlace(arr) {

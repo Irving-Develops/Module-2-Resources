@@ -32,17 +32,25 @@ class HashTable {
   insertNoCollisions(key, value) {
     // Your code here
     let indexOfInsert = this.hashMod(key);
-    let keyValuePair = new KeyValuePair(key, value);
-    //let newKeyValuePair = new KeyValuePair(key, value);
-    if(this.data[indexOfInsert] !== null){
+    if (this.data[indexOfInsert] !== null) {
       throw new Error('hash collision or same key/value pair already exists!')
     }
-    this.data[indexOfInsert] = keyValuePair;
+    this.data[indexOfInsert] = new KeyValuePair(key, value);
     this.count++;
   }
 
   insertWithHashCollisions(key, value) {
     // Your code here
+    let indexOfInsert = this.hashMod(key);
+    // console.log(indexOfInsert)
+    let keyValuePair = new KeyValuePair(key, value);
+    console.log(this.data[indexOfInsert])
+    if (this.data[indexOfInsert] !== null) {
+      KeyValuePair[this.next] = keyValuePair;
+      // KeyValuePair[this.next]= new KeyValuePair(key, value);
+    }
+    this.data[indexOfInsert] = new KeyValuePair(key, value);;
+    this.count++;
   }
 
   insert(key, value) {
@@ -52,18 +60,23 @@ class HashTable {
 }
 
 
-    // const hashTable = new HashTable(2);
-    // console.log(hashTable.data, "<------ data");
-    // let  newKV = new KeyValuePair(105, "john")
-    // hashTable.data[0] = newKV;
-    // console.log(hashTable.data, "<------ data");
-    // console.log(newKV)
-    // let code = sha256("C");
-    // // console.log(code)
-    // // code = code.slice(2 , 10)
-    // let num = parseInt(code.slice(0, 8), 16);
-    // // console.log(num);
-    // console.log(hashTable.insertNoCollisions("C"))
+const newHashTable = new HashTable(2);
+// console.log(hashTable.data, "<------ data");
+// let newKV = new KeyValuePair(105, "john")
+// let newKV2 = new KeyValuePair(105, "anne")
+
+// newHashTable.data[0] = newKV;
+// console.log(hashTable.data, "<------ data");
+// console.log(newKV)
+let code = sha256("C");
+// console.log(code)
+// code = code.slice(2 , 10)
+// let num = parseInt(code.slice(0, 8), 16);
+// console.log(num);
+console.log(newHashTable.insertNoCollisions( "C"), "<------test")
+console.log(newHashTable.insertWithHashCollisions("C"), "<------test")
+
+console.log(newHashTable.data)
 
 
 module.exports = HashTable;
